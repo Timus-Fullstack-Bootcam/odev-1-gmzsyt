@@ -225,12 +225,16 @@ Aşağıda, JavaScript'te `let`, `var`, ve `const` değişken tanımlama anahtar
 
 Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anahtar kelimeleri olan `var`, `let`, ve `const` arasındaki temel farkları gösteren bir tablo bulunmaktadır.
 
-| Özellik          | `var`                    | `let`                    | `const`                  |
-| ---------------- | ------------------------ | ------------------------ | ------------------------ |
-| **Kapsam**        | Fonksiyon kapsamı         | Blok kapsamı             | Blok kapsamı             |
-| **Yeniden Atama** | Yeniden atanabilir        | Yeniden atanabilir        | Yeniden atanamaz         |
-| **Hoisting**      | Evet, hoisted             | Hayır, hoisted değil      | Hayır, hoisted değil      |
-| **İlk Değer Atama**| İsterseniz atanabilir     | İsterseniz atanabilir     | Zorunlu                  |
+| Özellik            | `var`                    | `let`                    | `const`                  |
+| ------------------ | ------------------------ | ------------------------ | ------------------------ |
+| **Kapsam**         | Fonksiyon kapsamı         | Blok kapsamı             | Blok kapsamı             |
+| **Yeniden Atama**  | Yeniden atanabilir        | Yeniden atanabilir        | Yeniden atanamaz         |
+| **Hoisting**       | Evet, hoisted             | Hayır, hoisted değil      | Hayır, hoisted değil      |
+| **İlk Değer Atama** | İsterseniz atanabilir     | İsterseniz atanabilir     | Zorunlu                  |
+| **Kapsam Dışında** | Global ve fonksiyon kapsamında görünür | Sadece blok kapsamında görünür | Sadece blok kapsamında görünür |
+| **Örnek Kullanım** | `var x = 5;`              | `let y = 10;`             | `const z = 15;`           |
+| **Önerilen Kullanım** | Tercih edilmez (modern JS'te) | Tercih edilir (modern JS'te) | Tercih edilir (eğer yeniden atanmayacaksa) |
+| **Notlar**         | Global değişken olarak kullanılabilir, modern projelerde pek önerilmez | Genel kullanım için uygundur, değişkenin yeniden atanmasına gerek yoksa tercih edilir | Sabit değeri temsil eder, genellikle büyük harflerle tanımlanır |
 
 Bu tablo, her bir değişken tanımlama anahtar kelimesinin özelliklerini ve kullanım durumlarını karşılaştırarak seçim yapmanıza yardımcı olabilir.
 
