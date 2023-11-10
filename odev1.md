@@ -213,8 +213,6 @@ Hem değeri hem de veri tiplerini karşılaştırır.
 console.log(1 === "1"); // false
 console.log(true === 1); // false
 console.log(null === undefined); // false
-
-
 ```
 
 ## 10. let var const farkını tablo yapınız
@@ -229,15 +227,50 @@ Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anaht
 | ------------------ | ------------------------ | ------------------------ | ------------------------ |
 | **Kapsam**         | Fonksiyon kapsamı         | Blok kapsamı             | Blok kapsamı             |
 | **Yeniden Atama**  | Yeniden atanabilir        | Yeniden atanabilir        | Yeniden atanamaz         |
-| **Hoisting**       | Evet, hoisted             | Hayır, hoisted değil      | Hayır, hoisted değil      |
-| **İlk Değer Atama** | İsterseniz atanabilir     | İsterseniz atanabilir     | Zorunlu                  |
-| **Kapsam Dışında** | Global ve fonksiyon kapsamında görünür | Sadece blok kapsamında görünür | Sadece blok kapsamında görünür |
-| **Örnek Kullanım** | `var x = 5;`              | `let y = 10;`             | `const z = 15;`           |
-| **Önerilen Kullanım** | Tercih edilmez (modern JS'te) | Tercih edilir (modern JS'te) | Tercih edilir (eğer yeniden atanmayacaksa) |
-| **Notlar**         | Global değişken olarak kullanılabilir, modern projelerde pek önerilmez | Genel kullanım için uygundur, değişkenin yeniden atanmasına gerek yoksa tercih edilir | Sabit değeri temsil eder, genellikle büyük harflerle tanımlanır |
+| **Hoisting**       | Evet, hoisted             | Hayır     | Hayır  |
+| **İlk Değer Atama** | İsteğe bağlı     | İsteğe bağlı    | Zorunlu                  |
+| **Kapsam Dışında** | Global ve fonksiyon kapsamında| Sadece blok kapsamında  | Sadece blok kapsamında  |
+| **Örnek Kullanım** | `var x = 1;`              | `let y = 2;`             | `const z = 3;`           |
+| **Önerilen Kullanım** | Tercih edilmez  | Tercih edilir  | Tercih edilir (eğer tekrar atama olmayacaksa) |
 
-Bu tablo, her bir değişken tanımlama anahtar kelimesinin özelliklerini ve kullanım durumlarını karşılaştırarak seçim yapmanıza yardımcı olabilir.
+## 11. Arrow fonksiyonun normal fonksiyondan farkları nelerdir
 
+## 1. Sözdizimi (Syntax)
+
+- **Arrow Fonksiyon:**
+- 
+  ```javascript
+  const sum = (a, b) => a + b;
+``
+
+- **Normal Fonksiyon:**
+  ```javascript
+const sum = function(a, b) {
+    return a + b;
+};
+``
+
+## 2. `this` Bağlamı (Syntax)
+
+**Arrow Fonksiyon:**
+Arrow fonksiyonlarda this, fonksiyon nasıl çağırıldığına bakılmaksızın yeni bir değere bağlanmaz. this her zaman onu çevreleyen kodun this değeriyle aynı değerde olacaktır.
+
+```
+
+const function = () => {
+    console.log(this); // Arrow fonksiyonunun bulunduğu kapsamdaki this'i alır.
+};
+
+```
+
+**Normal Fonksiyon:**
+Normal fonksiyonlar, kendi `this` bağlamını oluştururlar. Fonksiyonun nasıl çağrıldığına bağlı olarak `this` değeri değişebilir.
+
+  ```javascript
+const sum = function(a, b) {
+    return a + b;
+};
+```
 
 
 
