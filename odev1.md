@@ -217,6 +217,22 @@ console.log(null === undefined); // false
 
 ```
 
+## 10. let var const farkını tablo yapınız
+
+Aşağıda, JavaScript'te `let`, `var`, ve `const` değişken tanımlama anahtar kelimelerinin farklarını tablo halinde açıklamaya çalıştım:
+
+# Değişken Tanımlama Anahtar Kelimeleri
+
+Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anahtar kelimeleri olan `var`, `let`, ve `const` arasındaki temel farkları gösteren bir tablo bulunmaktadır.
+
+| Özellik          | `var`                    | `let`                    | `const`                  |
+| ---------------- | ------------------------ | ------------------------ | ------------------------ |
+| **Kapsam**        | Fonksiyon kapsamı         | Blok kapsamı             | Blok kapsamı             |
+| **Yeniden Atama** | Yeniden atanabilir        | Yeniden atanabilir        | Yeniden atanamaz         |
+| **Hoisting**      | Evet, hoisted             | Hayır, hoisted değil      | Hayır, hoisted değil      |
+| **İlk Değer Atama**| İsterseniz atanabilir     | İsterseniz atanabilir     | Zorunlu                  |
+
+Bu tablo, her bir değişken tanımlama anahtar kelimesinin özelliklerini ve kullanım durumlarını karşılaştırarak seçim yapmanıza yardımcı olabilir.
 
 
 
