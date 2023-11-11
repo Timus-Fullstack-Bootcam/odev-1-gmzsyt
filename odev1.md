@@ -307,5 +307,58 @@ Arrow fonksiyonları, `constructor` yapısında kullanılamazlar.
 **Normal Fonksiyon:**
 Arrow fonksiyonları, `constructor` yapısında kullanılabilirler.
 
+## 12. swich bloğu içinde hatasız nasıl değişken tanımlanır
+
+  JavaScript'te bir `switch` ifadesi içinde değişken tanımlamanın iki ana noktası vardır. `case` etiketleri ile değişken tanımlama ve `switch` ifadesinin seçili değişkeni tanımlama.
+
+1. `case` Etiketleri :
+   `switch` ifadesi içinde değişkeni tanımlamak için, her `case` etiketi içinde `var`, `let` veya `const` anahtar kelimelerini kullanabilirsiniz. Bu şekilde tanımlanan değişkenler, yalnızca ilgili `case` etiketi içinde erişilebilir olacaktır. Örnek:
+
+   ```javascript
+   switch (sekil) {
+     case "kare":
+       let bildirim = "Kare seklini seçtiniz.";
+       console.log(bildirim);
+       break;
+
+     case "daire":
+       let bildirim = "Daire seklini seçtiniz."; // Hata: "mesaj" zaten tanımlandı
+       console.log(bildirim);
+       break;
+
+     default:
+       let bildirim = "Şekil seçtiniz"; // Hata: "mesaj" zaten tanımlandı
+       console.log(bildirim);
+   }
+   ```
+
+   Yukarıdaki örnekte zaten tanımlanmış olan bildirim değişkeni her case içerisinde tekrar tanımlanmıştır. Bu sebeple tekrar tanımlandığı alanlarda hata verir.
+
+2. Değişkeni Önceden Tanımlama:
+   `switch` ifadesinin dışında değişkeni tanımlamak ve daha sonra `case` etiketlerinde kullanmak bu hatayı ortadan kaldıracaktır.
+
+   ```javascript
+   let bildirim;
+
+   switch (sekil) {
+     case "kare":
+       bildirim = "Kare seklini seçtiniz.";
+       console.log(bildirim);
+       break;
+
+     case "daire":
+       bildirim = "Daire seklini seçtiniz.";
+       console.log(bildirim);
+       break;
+
+     default:
+       bildirim = "Şekil seçtiniz";
+       console.log(bildirim);
+   }
+   ```
+
+   ## 13. Pure fonksiyon ne demektir açıklayınız
+
+Pure fonksiyonları türkçe tabiri ile de saf şeklinde tanımlanabilir.
 
   
