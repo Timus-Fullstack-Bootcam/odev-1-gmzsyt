@@ -244,10 +244,10 @@ Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anaht
 ``
 
 - **Normal Fonksiyon:**
+- 
   ```javascript
-const sum = function(a, b) {
+  const sum = function(a, b) {
     return a + b;
-};
 ``
 
 ## 2. `this` Bağlamı (Syntax)
@@ -267,11 +267,45 @@ const function = () => {
 Normal fonksiyonlar, kendi `this` bağlamını oluştururlar. Fonksiyonun nasıl çağrıldığına bağlı olarak `this` değeri değişebilir.
 
   ```javascript
-const sum = function(a, b) {
-    return a + b;
+function func() {
+    console.log(this); // Normal fonksiyon kendi this bağlamını oluşturur.
+}
 };
 ```
 
+## 3. Parametreler
+
+**Arrow Fonksiyon:**
+Arrow fonksiyonlarda, tek bir ifade varsa süslü parantezler kaldırılabilir ve parametre sayısı bir ise parantez kaldırılabilir.
+
+ ```javascript
+const square = a => a * a;
+```
+
+## 4. Reassignment
+
+**Arrow Fonksiyon:**
+Kendine ait `this` bağlamı olmadığı için yeniden atama yapılamaz.
+
+**Normal Fonksiyon:**
+`this` değiştirilebildiği için yeniden atama yapılabilir
+
+ 
+## 5. `arguments` Erişimi
+
+**Arrow Fonksiyon:**
+Arrow fonksiyonları, `arguments` nesnesine erişemezler.
+
+**Normal Fonksiyon:**
+Normal fonksiyonlar, `arguments` nesnesine erişebilirler.
+
+## 6. Constructor Kullanımı
+
+**Arrow Fonksiyon:**
+Arrow fonksiyonları, `constructor` yapısında kullanılamazlar.
+
+**Normal Fonksiyon:**
+Arrow fonksiyonları, `constructor` yapısında kullanılabilirler.
 
 
   
