@@ -359,6 +359,70 @@ Arrow fonksiyonları, `constructor` yapısında kullanılabilirler.
 
    ## 13. Pure fonksiyon ne demektir açıklayınız
 
-Pure fonksiyonları türkçe tabiri ile de saf şeklinde tanımlanabilir.
+Pure türkçe kelime anlamı ile de saf demeiktir. Pure fonksiyonların sonucu alınan paramtereye bağlı olarak değişmektedir. Fonksiyonlarda dışardan static bir değer alınması durumunda asenkron durumlarda sıkıntılar ortaya çıkmaktadır. Çözüm olarak değişkenlerin parmetre olarak alınması ve fonksiyon içinde kullanılması düşünülebilir ki bu durum pure fonksiyon olarak açıklanmaktadır.
+
+   ## 14. Rest operatör nedir örnekle açıklayınız
+
+```javascript
+   // Şirket çalışanları
+const employees = [
+  { id: 1, name: 'Gamze', department: 'HR', salary: 50000 },
+  { id: 2, name: 'Gaye', department: 'Engineering', salary: 75000 },
+  { id: 3, name: 'Cemil', department: 'Marketing', salary: 60000 }
+];
+
+const newEmployee = { id: 4, name: 'Halil', department: 'Finance', salary: 70000 };
+const updatedEmployeesAdd = [...employees, newEmployee];
+
+console.log(updatedEmployeesAdd);
+/* Çıktı:
+[
+  { id: 1, name: 'Gamze', department: 'HR', salary: 50000 },
+  { id: 2, name: 'Gaye', department: 'Engineering', salary: 75000 },
+  { id: 3, name: 'Cemil', department: 'Marketing', salary: 60000 },
+  { id: 4, name: 'Halil', department: 'Finance', salary: 70000 }
+]
+*/
+
+const employeeIdToUpdate = 2;
+const updatedSalary = 80000;
+
+const updatedEmployeesSalary = employees.map(employee => {
+  if (employee.id === employeeIdToUpdate) {
+    return { ...employee, salary: updatedSalary };
+  }
+  return employee;
+});
+
+console.log(updatedEmployeesSalary);
+*/
+
+   ``` 
+Yukarıdaki örnekte `updatedEmployeesAdd` değişkenine rest, diğer adıyla spread operetörü ile mevcut olan tüm çalışanlar kopyalanmış ve yeni bir çalışan eklenmiştir. Aynı zamanda spread operetörünün ikinci bir işlevi olan güncelleme işlemi içinse `updatedEmployeesSalary` değişkeni map fonksiyonu ile seçili id'ye sahip çalışanın maaş değeri güncellenmiştir.
+
+   ## 15. Object destructuring nedir örnekle açıklayınız
+```javascript
+   // employee nesnesi
+const employee = {
+  id: 1,
+  name: 'Cemil',
+  department: 'Engineering',
+  salary: 350000
+};
+
+// Object destructuring 
+const { id, name, department, salary } = employee;
+
+// Çıkartılan özellikleri kullanma
+console.log(id);         // Çıktı: 1
+console.log(name);       // Çıktı: Alice
+console.log(department); // Çıktı: HR
+console.log(salary);     // Çıktı: 50000
+
+   ```
+`object destructuring` yukarıdaki örnekte de görüldüğü gibi bir nesnedeki özelliklerin ayrı değişkenlere atanmasında kullanılan bir özelliktir. Nesne içerisinden istenen özelliklerin kullanılması aşamasında rol almaktadır. Yukarıdaki örnekte ise employee ile eşitlenmiş olan id, name, department ve salary propertyleri `object destructuring` ile ayıklanmıştır. 
+
+
+
 
   
