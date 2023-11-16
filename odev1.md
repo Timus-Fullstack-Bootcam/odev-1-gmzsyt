@@ -357,11 +357,11 @@ Arrow fonksiyonları, `constructor` yapısında kullanılabilirler.
    }
    ```
 
-   ## 13. Pure fonksiyon ne demektir açıklayınız
+## 13. Pure fonksiyon ne demektir açıklayınız
 
 Pure türkçe kelime anlamı ile de saf demeiktir. Pure fonksiyonların sonucu alınan paramtereye bağlı olarak değişmektedir. Fonksiyonlarda dışardan static bir değer alınması durumunda asenkron durumlarda sıkıntılar ortaya çıkmaktadır. Çözüm olarak değişkenlerin parmetre olarak alınması ve fonksiyon içinde kullanılması düşünülebilir ki bu durum pure fonksiyon olarak açıklanmaktadır.
 
-   ## 14. Rest operatör nedir örnekle açıklayınız
+## 14. Rest operatör nedir örnekle açıklayınız
 
 ```javascript
    // Şirket çalışanları
@@ -400,7 +400,7 @@ console.log(updatedEmployeesSalary);
    ``` 
 Yukarıdaki örnekte `updatedEmployeesAdd` değişkenine rest, diğer adıyla spread operetörü ile mevcut olan tüm çalışanlar kopyalanmış ve yeni bir çalışan eklenmiştir. Aynı zamanda spread operetörünün ikinci bir işlevi olan güncelleme işlemi içinse `updatedEmployeesSalary` değişkeni map fonksiyonu ile seçili id'ye sahip çalışanın maaş değeri güncellenmiştir.
 
-   ## 15. Object destructuring nedir örnekle açıklayınız
+## 15. Object destructuring nedir örnekle açıklayınız
 ```javascript
    // employee nesnesi
 const employee = {
@@ -422,7 +422,348 @@ console.log(salary);     // Çıktı: 50000
    ```
 `object destructuring` yukarıdaki örnekte de görüldüğü gibi bir nesnedeki özelliklerin ayrı değişkenlere atanmasında kullanılan bir özelliktir. Nesne içerisinden istenen özelliklerin kullanılması aşamasında rol almaktadır. Yukarıdaki örnekte ise employee ile eşitlenmiş olan id, name, department ve salary propertyleri `object destructuring` ile ayıklanmıştır. 
 
+## 16. 2 elemanlı bir objeyi 6 farklı şekilde oluşturunuz
+
+1. Manuel Olarak Oluşturma
+ ```javascript
+const simplifiedEmployee1 = {
+  id: employeeId,
+  name: employeeName
+};
+   ```
+
+2.reduce() Fonksiyonu Kullanarak Oluşturma:
+   
+```javascript
+const simplifiedEmployee2 = Object.keys(employee).slice(0, 2).reduce((obj, key) => {
+  obj[key] = employee[key];
+  return obj;
+}, {});
+
+   ```
+
+3.Object.create():
+
+```javascript
+const employeePrototype = { name: '', position: '' };
+const employee4 = Object.create(employeePrototype);
+employee4.name = 'Gaye';
+employee4.position = 'Analyst';
+   ```
+
+4.Object Constructor
+
+```javascript
+const employee4 = new Object();
+employee4.name = 'Gamze';
+employee4.position = 'Seyit';
+
+   ```
+
+5.Fonksiyon ile Oluşturma:
+
+```javascript
+function createEmployee(name, position) {
+    const employee5 = {};
+    employee5.name = name;
+    employee5.position = position;
+    return employee5;
+}
+
+const employee5 = createEmployee('Gamze', 'Coordinator');
+
+   ```
+
+6.ES6 Destructuring ile Oluşturma:
+
+```javascript
+const name = 'Mustafa';
+const position = 'Manager';
+const employee6 = { name, position };
+   ```
+
+## 17. 2 elemanlı bir objenin key ve value değerlerinin karakter sayısı ile 2 farklı döngü methodu kullanarak yeni bir obje oluşturunuz
+
+```javascript
+const employee = {
+    name: 'Gamze',
+    position: 'Developer'
+};
+
+// 1. for...in döngüsü
+const newObj1 = {};
+for (const key in employee) {
+    if (employee.hasOwnProperty(key)) {
+        newObj1[key] = employee[key].length;
+    }
+}
+
+// 2. Object.entries() ve forEach kullanımı
+const newObj2 = {};
+Object.entries(employee).forEach(([key, value]) => {
+    newObj2[key] = value.length;
+});
+
+console.log(newObj1); // { name: 5, position: 9 }
+console.log(newObj2); // { name: 5, position: 9 }
+
+
+   ```
+
+## 18. Cookie, local storage ve session storage farkını tablo yapınız
+
+| Özellik                  | Cookie                 | Local Storage          | Session Storage        |
+|--------------------------|------------------------|------------------------|------------------------|
+| **Saklama Kapasitesi**   | 4 KB (genel)      | 5 MB (tarayıcıya bağlı) | 5 MB (tarayıcıya bağlı) |
+| **Veri Saklama Yeri**    | Tarayıcı ve Sunucu     | Tarayıcı               | Tarayıcı               |
+| **Veri Saklama Süresi**  | Belirtilebilir (ayarlanabilir), varsayılan olarak tarayıcı oturumu süresince | Kalıcı (tarayıcı temizlenmediği sürece) | Oturum süresince (tarayıcı penceresi kapatıldığında silinir) |
+| **Tarayıcıdan İletişim** | Otomatik olarak her HTTP isteği ile sunucuya gönderilir | Sunucuya gönderilmez, sadece tarayıcı içinde kullanılır | Sunucuya gönderilmez, sadece tarayıcı içinde kullanılır |
+| **Kullanım Alanı**       | Genelde oturum yönetimi ve kullanıcı tercih bilgileri gibi küçük verilerin saklanması | Tarayıcıda kalıcı olarak saklanması gereken veriler (örneğin kullanıcı tercihleri) | Bir tarayıcı oturumu boyunca geçici olarak saklanması gereken veriler |
+| **JavaScript Erişimi**   | Sınırlı (HttpOnly flag ile sadece sunucu tarafından okunabilir ve yazılabilir) | Evet, JavaScript tarafından okunabilir ve yazılabilir | Evet, JavaScript tarafından okunabilir ve yazılabilir |
+
+
+## 19. asenkron ve senkron işlem farkı nedir
+
+Asenkron işlemler ve senkron işlemler arasındaki en temel fark senkron işlemler adım adım gerçekleşirken, asenkron işlemler eş zamanlı olarak çalışabilmektedir.
+Senkron işlemler adım adım gerçekleşirken asenkron işlemler bir işlemin tamamlanmasını beklemeden bir sonraki işlemi gerçekleştirebilmektedir.
+Asenkron işlemler, zaman alan ve etkileşim gerektiren işlemlerde tercih edilmektedir.
+Senkron işlem blokları daha basitken asenkron işlemlerde call back fonksiyonları, promiseler veya async await gibi yönetimler tercih edilmektedir.
+
+## 20. promise nedir ve neden ihtiyaç duyarız
+
+ Promise kelime anlamı olarak da söz demektir. Asenkron programlamanın yönetilmesinde kullanılan bir nesnedir. Promise, program içerisindeki değerin gelecek zamanda alacağı değeri temsil eder. Aynı zamanda hata durumu için de kullanılabilir.
+Promise yapısına ihtiyaç durulmasının başlıca sebepleri:
+ Asenkron işlemlerde zaman alan durumlar söz konusu olduğu için callbackler ile problemler çözülebilmektedir ancak callback hell sorunu sebebiyle derinleşen ve karmaşık bir hal alan kod satırlarının önüne promise yapısı ile geçilebilmektedir.
+  Asenkron işlemler birbirini takip ederek değil, biri bitmeden diğeri başlayan işlemler olduğundan promisler sayesinde birinci işlemin bitmesi ardından ikincinin gerçekleşeceği sözünü verebilmektedir.
+  Aynı zamanda promisler reject ile başarısız durumların yönetilmesi imkanı da sunabilmektedir.
+
+## Array Soruları Ödev 2 var dolap = ["Shirt", "Pant","TShirt"];
+
+Array Soruları Ödev 2 var dolap = ["Shirt", "Pant","TShirt"];
+
+### 1.dolap arrayindeki son elemanı silip consola yazdırın
+### 2. dolap arrayindeki ilk elamanı silip yerine “Hat” elemanını gönderip consola yazdırın
+### 3. dolap değişkeninin array olup olmadığını kontrol edin ve sonucu bir değişkene eşitleyin
+### 4. dolap arrayinde “Pant” elemanın olup olmadığını 3 farklı method ile kontrol edin
+### 5. dolap arrayindeki elemanların karakter sayısını toplayıp geriye döndürecek fonksiyonu yazın
+### 6.dolap arrayindki tüm elemanları büyük harfe çevirip yeni bir değişkene 3 farklı yöntemle atayın
+### 7. dolap arrayini index sayıları key olacak şekilde objeye çeviriniz
+### 8. slice ile splice farkı nedir
+
+  ```javascript
+var dolap = ["Shirt", "Pant", "TShirt"];
+
+// Soru 1: dolap arrayindeki son elemanı silip consola yazdırın
+var removedLastItem = dolap.pop();
+console.log("Removed the last item", removedLastItem);
+
+// Soru 2: dolap arrayindeki ilk elamanı silip yerine “Hat” elemanını gönderip consola yazdırına
+var removedFirstItem = dolap.shift();
+dolap.unshift("Hat");
+console.log("Removed the first item and added 'Hat':", removedFirstItem);
+
+// Soru 3: dolap değişkeninin array olup olmadığını kontrol edin ve sonucu bir değişkene eşitleyin
+var isArray = Array.isArray(dolap);
+console.log("Is 'dolap' variable an array?", isArray);
+
+// Soru 4:  dolap arrayinde “Pant” elemanın olup olmadığını 3 farklı method ile kontrol edin
+var includesMethod = dolap.includes("Pant");
+var indexOfMethod = dolap.indexOf("Pant") !== -1;
+var someMethod = dolap.some(item => item === "Pant");
+console.log("Using includes method:", includesMethod);
+console.log("Using indexOf method:", indexOfMethod);
+console.log("Using some method:", someMethod);
+
+// Soru 5:  dolap arrayindeki elemanların karakter sayısını toplayıp geriye döndürecek fonksiyonu yazın
+function totalCharacterCount(array) {
+  return array.reduce((total, item) => total + item.length, 0);
+}
+
+console.log("Total character count:", totalCharacterCount(dolap));
+
+// Soru 6: dolap arrayindki tüm elemanları büyük harfe çevirip yeni bir değişkene 3 farklı yöntemle atayın
+var upperCaseArray1 = dolap.map(item => item.toUpperCase());
+var upperCaseArray2 = dolap.map(function(item) {
+  return item.toUpperCase();
+});
+var upperCaseArray3 = dolap.map(String.prototype.toUpperCase);
+console.log("Uppercase array (Method 1):", upperCaseArray1);
+console.log("Uppercase array (Method 2):", upperCaseArray2);
+console.log("Uppercase array (Method 3):", upperCaseArray3);
+
+// Soru 7: dolap arrayini index sayıları key olacak şekilde objeye çeviriniz
+var wardrobeObject = Object.fromEntries(dolap.entries());
+console.log("Wardrobe as an object:", wardrobeObject);
+
+// Soru 8: slice ile splice farkı
+// - slice: Array'i parçalayarak yeni bir array oluşturur.
+// - splice: Array'e eleman ekler, çıkarır.
+
+
+   ```
+   
+## const arr = [1,2,3,4,5,6,7,7,8,6,10];
+
+### arrayindeki yinelenen sayıları bulun
+  ```javascript
 
 
 
+   ```
+
+### arrayindeki tüm yinelenen sayıları silip yeni bir arrayi 2 farklı method ile oluşturun
+
+```javascript
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+
+function findDuplicateNumbers(arr) {
+  const seen = [];
+  const duplicateNumbers = [];
+
+  arr.forEach(number => {
+    if (seen.includes(number)) {
+      duplicateNumbers.push(number);
+    } else {
+      seen.push(number);
+    }
+  });
+
+  return duplicateNumbers;
+}
+
+const result = findDuplicateNumbers(arr);
+console.log("Yinelenen Sayılar:", result);
+   ```
+
+### arrayindeki en yüksek ve en düşük değeri 2 farklı methodla bulun
+
+```javascript
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+
+arr.sort((a, b) => a - b); // Küçükten büyüğe sırala
+
+const minNumber = arr[0];
+const maxNumber = arr[arr.length - 1];
+
+console.log("En düşük değer:", minNumber);
+console.log("En yüksek değer:", maxNumber);
+
+   ```
+
+```javascript
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+
+const maxNumber = Math.max(...arr);
+const minNumber = Math.min(...arr);
+
+console.log("En yüksek değer:", maxNumber);
+console.log("En düşük değer:", minNumber);
+
+
+   ```
+
+## Kod Çıktıları
+
+```javascript
+// Bu kodun çıktısı nedir neden ?
+function job() {
+    return new Promise(function(resolve, reject) {
+        reject();
+}); }
+let promise = job();
+promise
+.then(function() {
+    console.log('Success 1');
+})
+.then(function() {
+    console.log('Success 2');
+})
+.then(function() {
+    console.log('Success 3');
+})
+.catch(function() {
+    console.log('Error 1');
+})
+.then(function() {
+    console.log('Success 4');
+});
+   ```
   
+KOD ÇIKTISI:
+
+```javascript
+Error 1
+Success 4
+   ```
+
+Yukarıdaki kodda job fonksiyonu promise döndürmektedir ve `reject` ile reddedilmiştir. Bu nedenle 1. blok atlanır.
+2. blok da bir önceki işlem başarasız olduğu için atlanacaktır ve aynı durum 3. blok için de geçerlidir.
+4. blok da job fonksiyonu reject ile hata ile sonuçlandığı için bu blok çalışır. Error 1 mesajı konsola yazdırlır.
+5. blok da kendinden önceki işlem başarılı olduğudan çalışacak ve Success 4 çıktısını verecektir.
+
+```javascript
+// Bu kodun çıktısı nedir neden ?
+function job(state) {
+    return new Promise(function(resolve, reject) {
+        if (state) {
+            resolve('success');
+        } else {
+            reject('error');
+        }
+}); }
+let promise = job(true);
+promise
+.then(function(data) {
+    console.log(data);
+    return job(true);
+})
+.then(function(data) {
+    if (data !== 'victory') {
+        throw 'Defeat';
+    }
+    return job(true);
+})
+.then(function(data) {
+    console.log(data);
+})
+.catch(function(error) {
+    console.log(error);
+    return job(false);
+})
+.then(function(data) {
+
+console.log(data);
+    return job(true);
+})
+.catch(function(error) {
+    console.log(error);
+    return 'Error caught';
+})
+.then(function(data) {
+    console.log(data);
+    return new Error('test');
+})
+.then(function(data) {
+    console.log('Success:', data.message);
+})
+.catch(function(data) {
+    console.log('Error:', data.message);
+});
+   ```
+ÇIKTI:
+```
+success
+Defeat
+error
+Error caught
+Success: test
+```
+ 1.Kod incelendiğinde ilk then bloğunda `job(true)` sebebiyle 'success' mesajı konsola yazdırılır. Return ettiği job(true) fonksiyonunu döndürür.
+ 2.İkinci then bloğunda data 'success' e eşit ve victory'ye eşit olmadığından throw içine girerek 'Defeat' yazdırılır. 
+ 3.Throw sonrası durumun `reject` olması sebebiyle işlem durdurulur ve `catch` bloğua yönlendirilir. Return edilen job(false) döndürülür.
+ 4.Bir önceki işlemin hatayla sonuçlanması durumundan bu blok atlanır ve `catch` bloğuna atlanılır. 
+ 5.Önceki işlem hatayla sonuçlandığı için ekrana `error` çıktısı verilir ve 'Error caught' döndürülür.
+ 6. Bu then bloğunda bir önceki işlemde çıktı olan data ekrana yazdılır ve job(true) döndürülür.
+ 7.Son then bloğu da bir önceki işleminden data alınır(test) ve ekrana yazdırılır.
+
+
