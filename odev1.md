@@ -241,14 +241,13 @@ Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anaht
 - 
   ```javascript
   const sum = (a, b) => a + b;
-``
 
 - **Normal Fonksiyon:**
-- 
+  
   ```javascript
   const sum = function(a, b) {
     return a + b;
-``
+
 
 ## 2. `this` Bağlamı (Syntax)
 
