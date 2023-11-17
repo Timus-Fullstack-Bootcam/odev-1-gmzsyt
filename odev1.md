@@ -414,10 +414,10 @@ const employee = {
 const { id, name, department, salary } = employee;
 
 // Çıkartılan özellikleri kullanma
-console.log(id);         // Çıktı: 1
-console.log(name);       // Çıktı: Alice
-console.log(department); // Çıktı: HR
-console.log(salary);     // Çıktı: 50000
+console.log(id);   
+console.log(name);     
+console.log(department);
+console.log(salary);     
 
    ```
 `object destructuring` yukarıdaki örnekte de görüldüğü gibi bir nesnedeki özelliklerin ayrı değişkenlere atanmasında kullanılan bir özelliktir. Nesne içerisinden istenen özelliklerin kullanılması aşamasında rol almaktadır. Yukarıdaki örnekte ise employee ile eşitlenmiş olan id, name, department ve salary propertyleri `object destructuring` ile ayıklanmıştır. 
@@ -456,7 +456,7 @@ employee4.position = 'Analyst';
 ```javascript
 const employee4 = new Object();
 employee4.name = 'Gamze';
-employee4.position = 'Seyit';
+employee4.position = 'Engineering';
 
    ```
 
