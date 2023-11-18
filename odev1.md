@@ -495,9 +495,26 @@ console.log("Wardrobe as an object:", wardrobeObject);
 ## const arr = [1,2,3,4,5,6,7,7,8,6,10];
 
 ### arrayindeki yinelenen sayıları bulun
+
   ```javascript
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
 
+function findDuplicateNumbers(array) {
+    const duplicates = [];
 
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] === array[j] && !duplicates.includes(array[i])) {
+                duplicates.push(array[i]);
+            }
+        }
+    }
+
+    return duplicates;
+}
+
+const duplicateNumbers = findDuplicateNumbers(arr);
+console.log("Yinelenen sayılar:", duplicateNumbers);
 
    ```
 
