@@ -83,7 +83,7 @@ Temel farklar :
  
 ```javascript
    // Tek satırlık yorum
-   let value = "Gamze"; // Değişkene bir değer atandı.
+   let value = "Gamze"; 
    ```
 2. Çok Satırlı Yorum:
     Başlangıç işareti /* ve bitiş işareti */ olarak belirlenir.
