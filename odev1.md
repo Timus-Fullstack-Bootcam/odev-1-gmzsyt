@@ -2,7 +2,7 @@
 
 ## 1. JavaScript nedir ve tarihsel gelişiminden bahsedin
 
-> JavaScript, web tarayıcılarında çalışan ve web sayfalarına dinamik özellikler kazandıran bir programlama dilidir. JavaScript, kullanıcı etkileşimi, sayfa içeriğini değiştirme, asenkron veri iletişimi ve çeşitli diğer görevler için kullanılabilir. 1995 yılında Brendan Eich tarafından Netscape Communications Corporation'da geliştirilmeye başlanan bu dil, günümüzde sadece tarayıcılarda değil, sunucu taraflı geliştirme (Node.js) ve mobil uygulama geliştirme gibi geniş bir yelpazede kullanılmaktadır. JavaScript, ES6 (ECMAScript 2015) ile birlikte bir dizi yenilik ve güncelleme almış, geliştiricilere daha güçlü ve okunabilir kod yazma imkanı sunmuştur.
+> JavaScript, web tarayıcılarında çalışan ve web sayfalarına dinamik özellikler kazandıran bir programlama dilidir. 
 - ** 1995 - İlk Geliştirme:
 Brendan Eich, Netscape Communications Corporation için, tarayıcı Netscape Navigator'ın bir bileşeni olarak ilk JavaScript prototipini geliştirdi. Bu dönemde dil, "Mocha" ve daha sonra "LiveScript" adlarıyla anıldı.
 
@@ -31,36 +31,14 @@ Bu gelişmeler, JavaScript'in sadece bir tarayıcı dili olmaktan çıkıp genel
 
   1. Dil Tipi:
 
-   - Java: Java, bir nesne yönelimli programlama (OOP) dilidir. Genellikle sunucu uygulamaları, masaüstü uygulamaları ve mobil uygulamalar gibi çeşitli platformlarda kullanılır.
-   - JavaScript: JavaScript, bir tarayıcı tarafı betik dilidir. Web tarayıcılarında çalışır ve web sayfalarını etkileşimli hale getirmek için kullanılır.
-
-2. Çalıştırma Ortamı:
-
-   - Java, genellikle Java Virtual Machine (JVM) üzerinde çalışır. Bu, Java'nın platform bağımsız olmasını sağlar.
-   - JavaScript, tarayıcılarda yerleşik olarak çalışır (örneğin, Chrome'un V8 motoru), ancak Node.js gibi ortamlarla sunucu tarafında da çalışabilir.
-
-3. Kullanım Alanları:
-
-   - Java çoğunlukla büyük ölçekli uygulamalar, işletim sistemleri, mobil uygulamalar ve büyük kurumsal projeler gibi geniş bir yelpazede kullanılır.
-   - JavaScript, genellikle tarayıcılarda web sayfalarını etkileşimli hale getirmek için kullanılır, ancak artık sunucu tarafında (Node.js gibi) da kullanılmaktadır.
-
-4. Nesne Yönelimli Programlama (OOP):
-
-Hem Java hem de JavaScript nesne yönelimli programlama desteklese de Java bu paradigmayı daha katı bir şekilde uygular.
-
-5. Derleme:
-   - Java, genellikle kodun derlendiği ve ardından JVM üzerinde yürütüldüğü bir dil olarak kullanılır.
-   - JavaScript ise çoğunlukla yorumlanan bir dildir, tarayıcı tarafından yukarıdan aşağıya her bir satır yorumlanarak çalıştırılır.
-  
-Bu farklılıklar, Java'nın genel amaçlı,büyük projelerde kullanılan bir dilken JavaScript'in daha tarayıcı tabanlı ve genellikle dinamik web sayfalarını güçlendirmek için kullanılmasını yansıtmaktadır.
+   - Java: Java, bir nesne yönelimli programlama (OOP) dilidir. Sunucu uygulamarında kullanılmaktadır.
+   - JavaScript: JavaScript, bir tarayıcı tarafında çalışan bir dildir.Bu v8 ile gerçekleşmektedir. İstemci-sunucu işlemlerini barındırır.
 
 ## 3. Javascript teki veri tipleri nelerdir açıklayınız
 
 JavaScript'te veri tipleri, primitive (ilkel) ve ilkel olmayan (non-primitive) olarak iki ana başlığa ayrılır.
 
  ## ilkel veri türü
-
- 1. Primitive veriler, daha az karmaşık ve tek bir veriyi temsil eden yapılardır.
 
    1. **Number**: Sayı şeklindeki verileri temsil eder.
    1. **String**: Metin şeklindeki verileri temsil eder.
@@ -70,8 +48,6 @@ JavaScript'te veri tipleri, primitive (ilkel) ve ilkel olmayan (non-primitive) o
    1. **Symbol**: Değişmeyen değerler oluşturur.
 
    ## ilkel olmayan veri türü
-   
- 1. ilkel olmayan veriler, daha complex yapılandırma için kullanılmaktadır. İlkel olmayan veriler, referans tipleridir. Bellekte belirli referanslarla saklanır ve bu referanslar sayesinde erişim sağlanır.
 
    1. **Object**:  Özellikler (properties) ve metodları içeren komplike verilerdir. Key- value ilişkisi ile çalışmaktadır.
    1. **Array**: Index numaralarına göre sıralanmış liste elemanlarıdır. Bİrden çok değeri tutar.
@@ -82,8 +58,6 @@ JavaScript'te veri tipleri, primitive (ilkel) ve ilkel olmayan (non-primitive) o
 ### null:
 
 - `null`, bir değişkenin bilinçli olarak atanmamış veya boş bir değere sahip olduğunu belirtmek için kullanılır.
-- Bir değişkenin `null` değerine sahip olması, programcının bilinçli bir şekilde bir değer atamadığını gösterir.
-- `typeof null` ifadesi "object" döner, ancak bu bir dil hatasıdır ve `null` aslında bir nesne değildir.
 
 ```javascript
 let degisken = null;
@@ -94,20 +68,17 @@ console.log(typeof degisken); // "object" (ancak bu bir hata)
 ### undefined:
 
 - `undefined`, bir değişkenin henüz bir değer atanmamış olduğunu gösterir. Değer belirsizdir.
-- Bir değişken tanımlanmış ve değeri yoksa, JavaScript otomatik olarak  `undefined` değerini atar.
-- `null` gibi, typeof `undefined` ifadesi "undefined" döner.
 
 Temel farklar :
 
-- `null`bir değer olmasına rağmen undefined, bir türdür.
-- `null`'ın değeri ve türü aynıdır; yani, null bir değeri temsil eder.
-- `undefined`, bir değişkenin tanımlı olmama durumunu ifade eder ve değeri `undefineddir`.
--JavaScript, değişkenlere başlangıçta otomatik olarak `undefined` değerini atar.
-- `null` ve `undefined` genellikle koşullu ifadelerde veya veri işleme işlemlerinde kullanılır.
+- `null`bir değer, undefined ise bir türdür.
+- `null` bir değer temsil eder.
+- `undefined`, bir değişkenin durumunu temsil eder.
+-Değişkenler default olarak `undefined` değerini alır.
 
 ## 5. NaN nedir açıklayınız
 
-`NaN`,  "Not-a-Number"ın demektir. Sayısal işlemlerde istenen çıktıya ulaşılamadığı veya sayısal olmayan bir değerlerle matematiksel işlem yapılmak istendiğinde kullanılır. JavaScript'te `NaN`, özel değerdir ve sayı olmayan bir işlemin sonucunu temsil eder.
+`NaN`,  "Not-a-Number"ın demektir. Sayısal,işlemsel hataları simgeler.
 
 ## 6. Javascript’te yorum satırı eklemenin kaç farklı yolu vardır
 
@@ -125,29 +96,24 @@ Temel farklar :
 
    ```javascript
    /*
-   Çok
-   satırlı
-   yorum
+   merhaba
+   ben
+   gamze
    .
    */
    ```
    
 ## 7. Global değişken ne demektir açıklayınız
 
-Programın herhangi bir yerinde tanımlanmış olan değişkenin tekrar yer fark etmeksizin kullanılbildiği değişken türüdür. Her fonksiyon ve kod bloğu içerisinden erişim sağlabilir. Bu durum veri paylaşımı açısından avantajken kod karmaşıklığına sebep olması ve hata ayıklamanın zorlaşmasına sebeb olması sebebiyle dikkatli kullanılmalıdır.
+Programın herhangi bir yerinde tanımlı ve herhangi bir yerden erişimi mümkün olan değişken türleridir.
 
 ```js
+var globalValue = "Global value";
 
-// Global değişken tanımlama
-var globalValue = "Bu bir global değişkendir.";
-
-// Fonksiyon içinde global değişken kullanımı
 function showGlobalValue() {
-    console.log("Global Değişken: " + globalDegisken);
+    console.log("Global value: " + globalValue);
 }
-
-// Fonksiyon çağrısı
-globalDegiskeniGoster();
+showGlobalValue();
 ```
 
 ## 8. Javascript’te this anahtar kelimesi nedir açıklayınız
@@ -199,29 +165,17 @@ var person1 = new Person('23');
 1. == (Loose Equality):
 Yalnızca değerleri karşılaştırır.
 ```js
-
 console.log(1 == "1"); // true
-console.log(true == 1); // true
-console.log(null == undefined); // true
-
 ```
 2. === (Strict Equality):
 Hem değeri hem de veri tiplerini karşılaştırır.
 
 ```js
-
 console.log(1 === "1"); // false
-console.log(true === 1); // false
-console.log(null === undefined); // false
 ```
 
 ## 10. let var const farkını tablo yapınız
 
-Aşağıda, JavaScript'te `let`, `var`, ve `const` değişken tanımlama anahtar kelimelerinin farklarını tablo halinde açıklamaya çalıştım:
-
-# Değişken Tanımlama Anahtar Kelimeleri
-
-Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anahtar kelimeleri olan `var`, `let`, ve `const` arasındaki temel farkları gösteren bir tablo bulunmaktadır.
 
 | Özellik            | `var`                    | `let`                    | `const`                  |
 | ------------------ | ------------------------ | ------------------------ | ------------------------ |
@@ -249,28 +203,10 @@ Aşağıda, JavaScript'te yaygın olarak kullanılan değişken tanımlama anaht
     return a + b;
 
 
-## 2. `this` Bağlamı (Syntax)
+## 2. `this` Bağlamı
 
 **Arrow Fonksiyon:**
-Arrow fonksiyonlarda this, fonksiyon nasıl çağırıldığına bakılmaksızın yeni bir değere bağlanmaz. this her zaman onu çevreleyen kodun this değeriyle aynı değerde olacaktır.
-
-```
-
-const function = () => {
-    console.log(this); // Arrow fonksiyonunun bulunduğu kapsamdaki this'i alır.
-};
-
-```
-
-**Normal Fonksiyon:**
-Normal fonksiyonlar, kendi `this` bağlamını oluştururlar. Fonksiyonun nasıl çağrıldığına bağlı olarak `this` değeri değişebilir.
-
-  ```javascript
-function func() {
-    console.log(this); // Normal fonksiyon kendi this bağlamını oluşturur.
-}
-};
-```
+Arrow fonksiyonlarda this, fonksiyon nasıl çağırıldığına bakılmaksızın yeni bir değere bağlanmaz. this her zaman onu çevreleyen kodun this değeriyle aynı değerde olur.
 
 ## 3. Parametreler
 
@@ -308,53 +244,25 @@ Arrow fonksiyonları, `constructor` yapısında kullanılabilirler.
 
 ## 12. swich bloğu içinde hatasız nasıl değişken tanımlanır
 
-  JavaScript'te bir `switch` ifadesi içinde değişken tanımlamanın iki ana noktası vardır. `case` etiketleri ile değişken tanımlama ve `switch` ifadesinin seçili değişkeni tanımlama.
-
 1. `case` Etiketleri :
-   `switch` ifadesi içinde değişkeni tanımlamak için, her `case` etiketi içinde `var`, `let` veya `const` anahtar kelimelerini kullanabilirsiniz. Bu şekilde tanımlanan değişkenler, yalnızca ilgili `case` etiketi içinde erişilebilir olacaktır. Örnek:
+   `switch` için bir `case` ve onun değeri ardından `break` gibi bir komut kullanılır.
+```javascript
+var secim = parseInt(prompt("Departman seçiniz: 1. Yazılım, 2. Satış, 3. İnsan Kaynakları"));
 
-   ```javascript
-   switch (sekil) {
-     case "kare":
-       let bildirim = "Kare seklini seçtiniz.";
-       console.log(bildirim);
-       break;
-
-     case "daire":
-       let bildirim = "Daire seklini seçtiniz."; // Hata: "mesaj" zaten tanımlandı
-       console.log(bildirim);
-       break;
-
-     default:
-       let bildirim = "Şekil seçtiniz"; // Hata: "mesaj" zaten tanımlandı
-       console.log(bildirim);
-   }
-   ```
-
-   Yukarıdaki örnekte zaten tanımlanmış olan bildirim değişkeni her case içerisinde tekrar tanımlanmıştır. Bu sebeple tekrar tanımlandığı alanlarda hata verir.
-
-2. Değişkeni Önceden Tanımlama:
-   `switch` ifadesinin dışında değişkeni tanımlamak ve daha sonra `case` etiketlerinde kullanmak bu hatayı ortadan kaldıracaktır.
-
-   ```javascript
-   let bildirim;
-
-   switch (sekil) {
-     case "kare":
-       bildirim = "Kare seklini seçtiniz.";
-       console.log(bildirim);
-       break;
-
-     case "daire":
-       bildirim = "Daire seklini seçtiniz.";
-       console.log(bildirim);
-       break;
-
-     default:
-       bildirim = "Şekil seçtiniz";
-       console.log(bildirim);
-   }
-   ```
+switch (secim) {
+    case 1:
+        alert("Yazılım departmanına hoş geldiniz");
+        break;
+    case 2:
+        alert("Satış departmanına hoş geldiniz");
+        break;
+    case 3:
+        alert("İnsan Kaynakları departmanına hoş geldiniz");
+        break;
+    default:
+        alert("Geçersiz seçim. Lütfen doğru bir seçenek giriniz.");
+        break;
+}
 
 ## 13. Pure fonksiyon ne demektir açıklayınız
 
@@ -363,7 +271,6 @@ Pure türkçe kelime anlamı ile de saf demeiktir. Pure fonksiyonların sonucu a
 ## 14. Rest operatör nedir örnekle açıklayınız
 
 ```javascript
-   // Şirket çalışanları
 const employees = [
   { id: 1, name: 'Gamze', department: 'HR', salary: 50000 },
   { id: 2, name: 'Gaye', department: 'Engineering', salary: 75000 },
@@ -374,14 +281,6 @@ const newEmployee = { id: 4, name: 'Halil', department: 'Finance', salary: 70000
 const updatedEmployeesAdd = [...employees, newEmployee];
 
 console.log(updatedEmployeesAdd);
-/* Çıktı:
-[
-  { id: 1, name: 'Gamze', department: 'HR', salary: 50000 },
-  { id: 2, name: 'Gaye', department: 'Engineering', salary: 75000 },
-  { id: 3, name: 'Cemil', department: 'Marketing', salary: 60000 },
-  { id: 4, name: 'Halil', department: 'Finance', salary: 70000 }
-]
-*/
 
 const employeeIdToUpdate = 2;
 const updatedSalary = 80000;
@@ -394,15 +293,14 @@ const updatedEmployeesSalary = employees.map(employee => {
 });
 
 console.log(updatedEmployeesSalary);
-*/
 
    ``` 
 Yukarıdaki örnekte `updatedEmployeesAdd` değişkenine rest, diğer adıyla spread operetörü ile mevcut olan tüm çalışanlar kopyalanmış ve yeni bir çalışan eklenmiştir. Aynı zamanda spread operetörünün ikinci bir işlevi olan güncelleme işlemi içinse `updatedEmployeesSalary` değişkeni map fonksiyonu ile seçili id'ye sahip çalışanın maaş değeri güncellenmiştir.
 
 ## 15. Object destructuring nedir örnekle açıklayınız
 ```javascript
-   // employee nesnesi
 const employee = {
+
   id: 1,
   name: 'Cemil',
   department: 'Engineering',
@@ -412,18 +310,17 @@ const employee = {
 // Object destructuring 
 const { id, name, department, salary } = employee;
 
-// Çıkartılan özellikleri kullanma
 console.log(id);   
 console.log(name);     
 console.log(department);
 console.log(salary);     
 
    ```
-`object destructuring` yukarıdaki örnekte de görüldüğü gibi bir nesnedeki özelliklerin ayrı değişkenlere atanmasında kullanılan bir özelliktir. Nesne içerisinden istenen özelliklerin kullanılması aşamasında rol almaktadır. Yukarıdaki örnekte ise employee ile eşitlenmiş olan id, name, department ve salary propertyleri `object destructuring` ile ayıklanmıştır. 
+`object destructuring` yukarıdaki örnekte de görüldüğü gibi bir nesnedeki özelliklerin ayrı değişkenlere atanmasında kullanılan bir özelliktir. Nesne içinden özelliği ayrıştırır. Gereksiz tanımlamaları önler.
 
 ## 16. 2 elemanlı bir objeyi 6 farklı şekilde oluşturunuz
 
-1. Manuel Olarak Oluşturma
+1. Manuel 
  ```javascript
 const simplifiedEmployee1 = {
   id: employeeId,
@@ -431,7 +328,7 @@ const simplifiedEmployee1 = {
 };
    ```
 
-2.reduce() Fonksiyonu Kullanarak Oluşturma:
+2.reduce() 
    
 ```javascript
 const simplifiedEmployee2 = Object.keys(employee).slice(0, 2).reduce((obj, key) => {
