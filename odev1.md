@@ -59,12 +59,6 @@ JavaScript'te veri tipleri, primitive (ilkel) ve ilkel olmayan (non-primitive) o
 
 - `null`, bir değişkenin bilinçli olarak atanmamış veya boş bir değere sahip olduğunu belirtmek için kullanılır.
 
-```javascript
-let degisken = null;
-console.log(degisken); // null
-console.log(typeof degisken); // "object" (ancak bu bir hata)
-```
-
 ### undefined:
 
 - `undefined`, bir değişkenin henüz bir değer atanmamış olduğunu gösterir. Değer belirsizdir.
